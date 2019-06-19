@@ -9,7 +9,6 @@ function FactorySettingsBill() {
 
     function setCallTotal(input) {
         callsTotals += input;
-        console.log(callsTotals + ' test')
 
     }
     function setSmsTotal(input) {
@@ -19,7 +18,6 @@ function FactorySettingsBill() {
         return Number(smsTotal.toFixed(2));
     }
     function getCallTotal() {
-        console.log(callsTotals)
         return Number(callsTotals.toFixed(2));
     }
     function getTotals() {

@@ -86,7 +86,7 @@ function settingBillTotal() {
 
         callTotalSettings.innerHTML = FactorySettingsBill1.getCallTotal()
         smsTotalSettings.innerHTML = FactorySettingsBill1.getSmsTotal()
-        totalCost = FactorySettingsBill1.setTotal()
+        totalCost.innerHTML = FactorySettingsBill1. getTotals()
         totalSettings.innerHTML = FactorySettingsBill1.getTotals()
     }
 
