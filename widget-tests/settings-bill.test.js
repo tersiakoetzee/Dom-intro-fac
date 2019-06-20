@@ -34,7 +34,7 @@ describe('The Add Button with settings input bill function ', function () {
   it('should return true if total cost is higher than warning level.', function () {
     var settingInstance = FactorySettingsBill();
 
-    settingInstance.getCallTotal(13);
+    settingInstance.getTotals(13);
 
     assert.equal(settingInstance.warningLevel(13), false);
 
@@ -43,9 +43,9 @@ describe('The Add Button with settings input bill function ', function () {
   it('total cost Should not exceed critical level.', function () {
     var FactorySettingsBill1 = FactorySettingsBill();
 
-    FactorySettingsBill1.getCallTotal(13)
+    FactorySettingsBill1.getTotals(13)
 
-    assert.equal(FactorySettingsBill1.criticalLevel(13), false);
+    assert.equal(FactorySettingsBill1.criticalLevel(13),false);
 
 
   })
