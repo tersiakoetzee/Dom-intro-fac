@@ -12,41 +12,59 @@
 // * display the latest total on the screen
 
 
-var textTotalAddBtnElem = document.querySelector(".textBillTotal");
-var billTypeEntered = document.querySelector(".billTypeText");
-var addToBillBtn = document.querySelector(".addToBillBtn");
-var callsTotalElem = document.querySelector(".callTotalOne");
-var smsTotalElem = document.querySelector(".smsTotalOne");
-var totalCostElem = document.querySelector(".totalCost");
 
-var callsTotal1 = 0;
-var smsTotal1 = 0;
 
-function textBillTotal() {
+function FactoryTextBill() {
+    var totalCost = 0.00;
+    var call = 0.00;
+    var sms = 0.00;
 
-    var billTypeEnteredValue = billTypeEntered.value.trim();
 
-    if (billTypeEnteredValue === "call") {
-        callsTotal1 += 2.75
-    }
-    else if (billTypeEnteredValue === "sms") {
-        smsTotal1 += 0.75;
+    function textBillString(billType) {
+        var billItemType = billType
+        if (billItemType === "call") {
+            call += 2.75;
+        }
+        else if (billItemType === "sms") {
+            sms += 0.75;
+        }
+        totalCost = sms + call;
     }
 
-    callsTotalElem.innerHTML = callsTotal1.toFixed(2);
-    smsTotalElem.innerHTML = smsTotal1.toFixed(2);
-    var totalCost = callsTotal1 + smsTotal1;
-    totalCostElem.innerHTML = totalCost.toFixed(2);
-
-
-
-    if (totalCost >= 30) {
-        totalCostElem.classList.add("warning");
+    function callTot() {
+        return call.toFixed(2);
     }
-    if (totalCost >= 50) {
-        totalCostElem.classList.add("danger");
+    function smsTot() {
+        return sms.toFixed(2);
+    }
+
+    function totalT() {
+        // totalCost = sms + call;
+        return totalCost.toFixed(2)
+    }
+
+
+    function colorIndicator() {
+
+        if (totalCost >= 30.00 && totalCost < 50) {
+            return "warning";
+        }
+        else if (totalCost >= 50.00) {
+            return "danger";
+        }
+        return "";
+
+    }
+
+
+
+    return {
+        textBillString,
+        colorIndicator,
+        callTot,
+        smsTot,
+        totalT
     }
 
 }
 
-addToBillBtn.addEventListener('click', textBillTotal);

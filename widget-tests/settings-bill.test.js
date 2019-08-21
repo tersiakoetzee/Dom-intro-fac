@@ -1,52 +1,8 @@
-describe('The Add Button with settings input bill function ', function () {
-  it('should Add call total if call has been selected', function () {
-    var settingInstance = FactorySettingsBill();
-    settingInstance.setCallTotal(2);
-    settingInstance.setCallTotal(2);
+describe('The factory settings bill', function () {
+  it("should be able to set the call cost by what is entered in the input box")
 
-    assert.equal(settingInstance.getTotals('call'), 4);
-  });
+  var settingsItems = FactorySettingsBill();
 
-  it('should count sms total if sms has been selected',function () {
-    var settingInstance = FactorySettingsBill();
-
-      settingInstance.setSmsTotal(3);
-      settingInstance.setSmsTotal(3);
-      settingInstance.setSmsTotal(3);
-
-      assert.equal(settingInstance.getTotals(), 9);
-
-    });
-
-
-  it('should count call + sms total', function () {
-    var settingInstance = FactorySettingsBill();
-
-
-    settingInstance.setCallTotal(4);
-    settingInstance.setSmsTotal(9);
-
-    assert.equal(settingInstance.getTotals(), 13);
-
-  });
-
-
-  it('should return true if total cost is higher than warning level.', function () {
-    var settingInstance = FactorySettingsBill();
-
-    settingInstance.getTotals(13);
-
-    assert.equal(settingInstance.warningLevel(13), false);
-
-  });
-
-  it('total cost Should not exceed critical level.', function () {
-    var FactorySettingsBill1 = FactorySettingsBill();
-
-    FactorySettingsBill1.getTotals(13)
-
-    assert.equal(FactorySettingsBill1.criticalLevel(13),false);
-
-
-  })
+  settingsItems.setCall(2.00);
+  assert.equal(2.00, settingsItems.getCallTotal());
 })
