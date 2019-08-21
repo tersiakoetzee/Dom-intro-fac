@@ -10,15 +10,15 @@ var tempsource1 = document.querySelector(".userTemplate").innerHTML;
 var userTemplate1 = Handlebars.compile(tempsource1);
 var data1 = document.querySelector(".userData");
 
-var textfactory = FactoryTextBill();
+var textsfactory = FactoryTextBill();
 
 textBillTotal();
 function textBillTotal() {
-    textfactory.textBillString(billTypeEntered.value);
+    textsfactory.textBillString(billTypeEntered.value);
     var textData = userTemplate1({
-        call: "R" + textfactory.callTot(),
-        sms: "R" + textfactory.smsTot(),
-        total: "R" + textfactory.totalT(),
+        call: "R" + textsfactory.callTot(),
+        sms: "R" + textsfactory.smsTot(),
+        total: "R" + textsfactory.totalT(),
 
     });
     data1.innerHTML = textData;
@@ -29,13 +29,13 @@ function textBillTotal() {
     // console.log(col)
 
     Handlebars.registerHelper("warn", function () {
-        if (textfactory.colorIndicator(textfactory.totalT()) === "warning") {
+        if (textsfactory.colorIndicator(textsfactory.totalT()) === "warning") {
             return true;
         }
     });
 
     Handlebars.registerHelper("danger", function () {
-        if (textfactory.colorIndicator(textfactory.totalT()) === "danger") {
+        if (textsfactory.colorIndicator(textsfactory.totalT()) === "danger") {
             return true;
         }
     });
