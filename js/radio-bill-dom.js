@@ -30,29 +30,14 @@ function radBillTotal() {
         var billItemType = checkedRadioBtn.value
     }
     radioBillFactory.radioBill(billItemType);
+    var colorChange = radioBillFactory.colorIndicator()
         var radioData = userTemplate7({
             call: "R"+ radioBillFactory.callRadio(),
             sms: "R"+ radioBillFactory.smsRadio(),
             total: "R"+ radioBillFactory.totalR(),
-        
+            colorChange
         });
         data7.innerHTML = radioData;
-    
-      
-        Handlebars.registerHelper("warn", function () {
-            if (radioBillFactory.colorIndicator(radioBillFactory.totalR()) === "warning") {
-            
-                return true;
-            }
-            
-            
-        });
-        
-        Handlebars.registerHelper("danger", function () {
-             if (radioBillFactory.colorIndicator(radioBillFactory.totalR()) === "danger") {
-                return true;
-            }
-        });
     
     }
 

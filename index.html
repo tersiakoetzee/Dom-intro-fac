@@ -26,13 +26,13 @@
         <tr>
   {{#if (warn)}}
       <td>Total</td>
-      <td class="warning">{{total}} </td>
-      {{else if (danger)}}
+      <td>{{total}} </td>
+      {{else if (danger)}}  
       <td>Total</td>
-      <td class="danger">{{total}} </td>
+      <td>{{total}} </td>
           {{else}}
           <td>Total</td>
-          <td>{{total}}</td>
+          <td class="{{colorChange}}">{{total}}</td>
           {{/if}}
         </tr>
       </table>
